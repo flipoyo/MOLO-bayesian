@@ -2,7 +2,7 @@
 # pixi.toml at the root of the tree installs bayesian_inversion together with the other packages.
 [workspace]
 name = "bayesian_inversion"
-version = "0.4.2"
+version = "0.4.3"
 channels = ["conda-forge"]
 platforms = ["osx-arm64", "osx-64", "linux-64", "win-64"]
 

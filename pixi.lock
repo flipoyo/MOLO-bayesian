@@ -558,8 +558,8 @@ packages:
   timestamp: 1788046437162
 - pypi: ./
   name: bayesian-inversion
-  version: 0.4.2
-  sha256: 1a47ce67cad21d60f6aa5a0ae420eee45dfc1fa6217ae28f471d8b16abe06f3e
+  version: 0.4.3
+  sha256: eea539b0b97cccdb4e7aaad9a7244e0ab61a264aa1c133ffd8216aa5f64b47e3
   requires_dist:
   - numpy
   - tqdm
