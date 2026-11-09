@@ -22,7 +22,7 @@ requires-python = ">= 3.9"
 test = ["pytest"]
 
 [project.urls]
-Homepage = "https://github.com/flipoyo/MOLONARI-computo-bayesian-inversion"
+Homepage = "https://github.com/flipoyo/MOLO-bayesian"
 
 [tool.setuptools]
 packages = ["bayesian_inversion"]

@@ -1,7 +1,7 @@
 # bayesian_inversion
 
 MCMC estimation of the parameters of a model from its measurements, part of the MOLONARI project. It was written
-for the direct model of [pyheatmy](https://github.com/flipoyo/MOLONARI-computo-pyheatmy) (the parameters of the
+for the direct model of [pyheatmy](https://github.com/flipoyo/MOLO-pyheatmy) (the parameters of the
 layers of a riverbed column, from its temperatures), but it does not import `pyheatmy`: the model is any function.
 
 ```python
@@ -37,10 +37,32 @@ and the priors that were set on the layers are the state space.
 
 ## Installation and tests
 
+With [pixi](https://pixi.sh), in this repository:
+
 ```sh
-pip install -e .
-python -m pytest tests
+pixi install       # Python, numpy, tqdm and bayesian_inversion in editable mode
+pixi run test      # the tests; those marked slow run an MCMC
 ```
 
-The tests that use `bayesian_inversion` with `pyheatmy` are in the MOLONARI-computo tree
-(`integration_tests/`, `pixi run test-all`).
+`pixi run -e py310 test` and `pixi run -e py313 test` run them with the oldest and the newest Python supported, as
+GitHub Actions does at every push. Within the [MOLONARI-computo](https://github.com/flipoyo/MOLONARI-computo) tree,
+`pixi install` at the root of the tree installs `bayesian_inversion` together with `pyheatmy`, and the tutorials of
+[MOLO-tuto-cmpt](https://github.com/flipoyo/MOLO-tuto-cmpt) use the two packages together.
+
+## Versioning
+
+The version follows [SemVer](https://semver.org). `[workspace] version` in `pixi.toml` is the reference;
+`scripts/bump_version.py`, the same in every repository of the MOLONARI-computo tree, writes it into every file that
+mirrors it (`pyproject.toml`, `bayesian_inversion/__init__.py`):
+
+```sh
+pixi run bump-version minor --dry-run   # print the plan, write nothing
+pixi run bump-version patch             # or minor, major; --stage rc adds a pre-release label
+pixi run check-version                  # every mirror holds the version of pixi.toml (checked by GitHub Actions)
+```
+
+## LLM assistance
+
+Parts of this repository (its pixi environment and this README) were written with the help of large language
+models, mainly Claude (Anthropic) with Claude Code, used as a paid service under the direction of the project
+manager, Nicolas Flipo. They are acknowledged here rather than credited as co-authors.
